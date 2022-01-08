@@ -8,6 +8,9 @@ export default class App extends React.Component {
     if(this.state.text === '') return;
     this.props.onFormSubmit(this.state.text);
     this.setState({ text: '' });
+  };
+  handleDefault = (e) =>{
+    this.setState({ text: '' });
   }
   render() {
     const li = document.createElement('li');
@@ -23,6 +26,7 @@ export default class App extends React.Component {
           onChange={(e) => this.setState({text: e.target.value})}
         />
         <button className='button' onClick={this.handleSubmit}>Dodaj Tekst</button>
+        <button className='button' onClick={this.handleDefault}>Pocetno Stanje</button>
       </form>
             <ul>
               <li>{content}</li>
